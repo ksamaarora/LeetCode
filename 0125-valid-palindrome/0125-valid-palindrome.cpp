@@ -10,7 +10,7 @@ public:
         }
         int i=0;
         int n=snew.size();
-        while(i<n/2){
+        while(i<n/2){ // Changed the condition to i<n/2 to avoid accessing out of bound indices 
             if(snew[i]!=snew[n-i-1]) return false;
             i++;
         }
