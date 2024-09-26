@@ -39,7 +39,7 @@ public:
         // }
         // return prev;
         
-        // Method 3: Recursive method
+        // Method 3: Recursive method TC:O(N) SC:O(N) as its a recursive stack space
         if(head==NULL || head->next==NULL) return head;
         
         ListNode* newHead=reverseList(head->next);
