@@ -17,14 +17,28 @@ public:
         // }
         // return -1; // input is invalid
         
+        
+        // Method 2: Better soln
+        int n=nums.size();
+        vector<int> hash(n+1,0); // declare hash of size n with all values 0
+        for(int i=0; i<n; i++){ // // Count occurrences of each number in nums
+            hash[nums[i]]++;
+        }
+        for(int i=0; i<=n; i++){ // loop till n (incl n)
+            if(hash[i]==0){
+                return i;
+            }
+        }
+        return -1;
+        
         // Method 2: Optimal method TC:O(N) SC:O(1)
         // sum of first n natural numbers: n(n+1)/2
-        int n=nums.size();
-        int sum=(n*(n+1))/2;
-        int sum_arr=0;
-        for(int i=0; i<n; i++){
-            sum_arr=sum_arr+nums[i];
-        }
-        return sum-sum_arr; // missing element
+        // int n=nums.size();
+        // int sum=(n*(n+1))/2;
+        // int sum_arr=0;
+        // for(int i=0; i<n; i++){
+        //     sum_arr=sum_arr+nums[i];
+        // }
+        // return sum-sum_arr; // missing element
     }
 };
