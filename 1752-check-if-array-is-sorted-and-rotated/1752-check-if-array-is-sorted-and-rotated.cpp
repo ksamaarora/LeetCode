@@ -1,14 +1,16 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-        int breaks=0;
+        int count=0;
         int n=nums.size();
         for(int i=0; i<n; i++){
-            if(nums[i]>nums[(i+1)%n]){
-                breaks++;
+            if(nums[(i+1)%n]<nums[i]){
+                count++;
             }
         }
-        if(breaks<=1) return true;
-        else return false;
+        if(count>1){
+            return false;;
+        }
+        return true;
     }
 };
