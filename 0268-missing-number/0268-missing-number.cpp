@@ -32,24 +32,23 @@ public:
         // return -1;
         
         // Method 3: Optimal method TC:O(N) SC:O(1)
-        // sum of first n natural numbers: n(n+1)/2
-        // int n=nums.size();
-        // int sum=(n*(n+1))/2;
-        // int sum_arr=0;
-        // for(int i=0; i<n; i++){
-        //     sum_arr=sum_arr+nums[i];
-        // }
-        // return sum-sum_arr; // missing element
+        int n=nums.size();
+        int sum=0, sum_array=0;
+        for(int i=0; i<n; i++){
+            sum_array=sum_array+nums[i];
+        }
+        sum=(n*(n+1))/2;
+        return sum-sum_array;
         
         // Method 4: Most Optimal solution
-        int n=nums.size();
-        int xor1=0, xor2=0;
-        for(int i=1; i<=n; i++){
-            xor1=xor1^i;
-        }
-        for(int i=0; i<n; i++){
-            xor2=xor2^nums[i];
-        }
-        return xor1^xor2;
+        // int n=nums.size();
+        // int xor1=0, xor2=0;
+        // for(int i=1; i<=n; i++){
+        //     xor1=xor1^i;
+        // }
+        // for(int i=0; i<n; i++){
+        //     xor2=xor2^nums[i];
+        // }
+        // return xor1^xor2;
     }
 };
