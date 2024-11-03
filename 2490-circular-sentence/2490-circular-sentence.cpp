@@ -1,22 +1,24 @@
+// Method 2: Optimal Soln 
+// TC: O(N) SC:O(1)
 class Solution {
 public:
     bool isCircularSentence(string sentence) {
-        vector<string> words;
-        stringstream ss(sentence);
-        string word;
-
-        while (ss >> word) {
-            words.push_back(word);
+        int n=sentence.size();
+        if(sentence[0]!=sentence[n-1]){
+            return false;
         }
-
-        for (int i = 0; i < words.size(); ++i) {
-            char lastChar = words[i].back();
-            char nextFirstChar = words[(i + 1) % words.size()].front();
-
-            if (lastChar != nextFirstChar) {
-                return false;
+        for(int i=0; i<n; i++){
+            if(sentence[i]==' '){ // use single quotes 
+                if(sentence[i-1]!=sentence[i+1]) return false;
+            }
+            else{
+                continue;
             }
         }
         return true;
     }
 };
+
+// Method 1: Brute Force
+// TC: O(N)
+// SC:O(W)
