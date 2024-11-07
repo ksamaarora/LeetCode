@@ -34,22 +34,22 @@ public:
         // The above method will not work when values are negative or numbers are very big i.e. to the order of 10^9 or 10^12 etc
         
         // Method 2: Better solution using maps
-        // map<int, int> mpp;
-        // int n=nums.size();
-        // for(int i=0; i<n; i++){
-        //     mpp[nums[i]]++;
-        // }
-        // for(auto it:mpp){
-        //     if(it.second==1) return it.first;
-        // }
-        // return -1;
+        map<int,int>mpp;
+        int n=nums.size();
+        for(int i=0; i<n; i++){
+            mpp[nums[i]]++;
+        }
+        for(auto it:mpp){
+            if((it.second)==1) return it.first;
+        }
+        return -1;
         
         
         // Method 3: Using XOR
-        int xor1 = 0; // xor is a reserved keyword in c++
-        for(int i=0; i<nums.size(); i++){
-            xor1=xor1^nums[i];
-        }
-        return xor1;
+        // int xor1 = 0; // xor is a reserved keyword in c++
+        // for(int i=0; i<nums.size(); i++){
+        //     xor1=xor1^nums[i];
+        // }
+        // return xor1;
     }
 };
