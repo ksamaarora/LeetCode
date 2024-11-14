@@ -1,35 +1,42 @@
+// Method 1: Brute Force
+// TC:O(N) SC:O(1)
 class Solution {
 public:
     int minChanges(string s) {
-        // Initialize with first character of string
-        char currentChar = s[0];
-
-        int consecutiveCount = 0;
-        int minChangesRequired = 0;
-
-        // Iterate through each character in the string
-        for (int i = 0; i < s.length(); i++) {
-            // If current character matches the previous sequence
-            if (s[i] == currentChar) {
+        char currentChar=s[0];
+        int consecutiveCount=0;
+        int minChangesRequired=0;
+        int n=s.size();
+        for(int i=0; i<n; i++){
+            if(s[i]==currentChar){
                 consecutiveCount++;
                 continue;
             }
-
-            // If we have even count of characters, start new sequence
-            if (consecutiveCount % 2 == 0) {
-                consecutiveCount = 1;
+            if(consecutiveCount%2==0){
+                consecutiveCount=1;
             }
-            // If odd count, we need to change current character
-            // to match previous sequence
-            else {
-                consecutiveCount = 0;
+            else{
+                consecutiveCount=0;
                 minChangesRequired++;
             }
-
-            // Update current character for next iteration
-            currentChar = s[i];
+            currentChar=s[i];
         }
-
         return minChangesRequired;
     }
 };
+
+// Method 2: Optimised Code
+// TC: O(N/2) SC:O(1)
+// class Solution {
+// public:
+//     int minChanges(string s) {
+//         int minChangesRequired=0;
+//         int n=s.size();
+//         for(int i=0; i<n; i+=2){
+//             if(s[i]!=s[i+1]){
+//                 minChangesRequired++;
+//             }
+//         }
+//         return minChangesRequired;
+//     }
+// };
