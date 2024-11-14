@@ -8,8 +8,8 @@ public:
                 if (values[j] <= values[j + 1]) {
                     continue;
                 } else {
-                    if (__builtin_popcount(nums[j]) ==
-                        __builtin_popcount(nums[j + 1])) {
+                    if (__builtin_popcount(values[j]) ==
+                        __builtin_popcount(values[j + 1])) {
                         swap(values[j], values[j + 1]);
                     } else {
                         return false;
