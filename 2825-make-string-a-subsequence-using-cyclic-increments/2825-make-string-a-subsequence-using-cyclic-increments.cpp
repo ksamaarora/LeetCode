@@ -1,22 +1,36 @@
+// class Solution {
+// public:
+//     bool canMakeSubsequence(string str1, string str2) {
+//         int str2Index = 0;
+//         int lengthStr1 = str1.size(), lengthStr2 = str2.size();
+
+//         // Traverse through both strings using a for loop
+//         for (int str1Index = 0;
+//              str1Index < lengthStr1 && str2Index < lengthStr2; ++str1Index) {
+//             // Check if characters match, or if str1[str1Index] can be
+//             // incremented to str2[str2Index]
+//             if (str1[str1Index] == str2[str2Index] ||
+//                 (str1[str1Index] + 1 == str2[str2Index]) ||
+//                 (str1[str1Index] - 25 == str2[str2Index])) {
+//                 // If match found, move to next character in str2
+//                 str2Index++;
+//             }
+//         }
+//         // Check if all characters in str2 were matched
+//         return str2Index == lengthStr2;
+//     }
+// };
+
+
 class Solution {
 public:
-    bool canMakeSubsequence(string str1, string str2) {
-        int str2Index = 0;
-        int lengthStr1 = str1.size(), lengthStr2 = str2.size();
-
-        // Traverse through both strings using a for loop
-        for (int str1Index = 0;
-             str1Index < lengthStr1 && str2Index < lengthStr2; ++str1Index) {
-            // Check if characters match, or if str1[str1Index] can be
-            // incremented to str2[str2Index]
-            if (str1[str1Index] == str2[str2Index] ||
-                (str1[str1Index] + 1 == str2[str2Index]) ||
-                (str1[str1Index] - 25 == str2[str2Index])) {
-                // If match found, move to next character in str2
-                str2Index++;
-            }
+    bool canMakeSubsequence(string s1, string s2) {
+        int i = 0;
+        for (auto& c : s1){
+            if (i == s2.size()) break;
+            int a = c - 'a', b = s2[i] - 'a';
+            if (a == b || (a + 1) % 26 == b) ++i;
         }
-        // Check if all characters in str2 were matched
-        return str2Index == lengthStr2;
+        return i == s2.size();
     }
 };
