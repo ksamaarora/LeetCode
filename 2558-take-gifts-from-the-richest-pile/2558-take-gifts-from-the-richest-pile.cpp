@@ -26,17 +26,19 @@
 
 
 // Better Solution 
+// TC: O(N) + O(klogN)
+// SC: O(N)
 class Solution {
 public:
     long long pickGifts(vector<int>& gifts, int k) {
-        priority_queue<int> maxHeap(gifts.begin(), gifts.end());
-        for(int i=0; i<k; i++){
+        priority_queue<int> maxHeap(gifts.begin(), gifts.end()); // O(N)
+        for(int i=0; i<k; i++){ // O(klogN)
             int maxGift=maxHeap.top();
             maxHeap.pop();
             maxHeap.push(sqrt(maxGift));
         }
         long long sum=0;
-        while(!maxHeap.empty()){
+        while(!maxHeap.empty()){ // O(N)
             sum+=maxHeap.top();
             maxHeap.pop();
         }
