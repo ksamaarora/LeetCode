@@ -35,7 +35,7 @@ public:
         for(int i=0; i<k; i++){ // O(klogN)
             int maxGift=maxHeap.top();
             maxHeap.pop();
-            maxHeap.push(sqrt(maxGift));
+            maxHeap.push(floor(sqrt(maxGift)));
         }
         long long sum=0;
         while(!maxHeap.empty()){ // O(N)
